@@ -9,6 +9,10 @@ const globalStyle = () => css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  #root {
+    font-size: 62.5%;
+  }
 `;
 
 export default globalStyle;
