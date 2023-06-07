@@ -11,6 +11,10 @@ const globalStyle = () => css`
   }
 
   #root {
+    width: 100%;
+    margin: auto;
+    max-width: 70rem;
+    padding-top: 5rem;
     font-size: 62.5%;
   }
 `;

@@ -1,10 +1,25 @@
 const fontSize = {
-  display: '3rem',
-  large: '2rem',
-  medium: '1.5rem',
-  small: '1rem',
+  display: '2.5rem',
+  large: '1.5rem',
+  medium: '1.2rem',
+  small: '0.9rem',
 };
 
-const theme = { fontSize };
+const color = {
+  blue: '#438aff',
+  blue2: '#2c5bf1',
+  mint: '#21dfa6',
+  gray: '#9a9ea3',
+  gray2: '#e4e8eB',
+};
+
+const theme = {
+  fontSize,
+  color: {
+    primary: color.blue,
+    line: color.gray2,
+    ...color,
+  },
+};
 
 export default theme;
