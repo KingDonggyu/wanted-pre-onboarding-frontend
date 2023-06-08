@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 import SignForm from '../../components/SignForm';
 
 import User from '../../types/user';
-import UserRepository from '../../repository/api/user';
+import UserRepository from '../../repository/api/UserRepository';
 import handleHttpError from '../../utils/handleHttpError';
 import Route from '../../constants/routes';
 
