@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as s from './style';
 import Button from '../../components/Button';
@@ -5,7 +6,11 @@ import SignForm from '../../components/SignForm';
 import Route from '../../constants/routes';
 
 const SigninPage = () => {
-  const handleValidate = () => {};
+  const [disabled, setDisabled] = useState(true);
+
+  const handleValidate = (isValid: boolean) => {
+    setDisabled(!isValid);
+  };
 
   const hanmdleComplete = () => {};
 
@@ -14,7 +19,7 @@ const SigninPage = () => {
       <s.Title>로그인</s.Title>
       <s.FormBox>
         <SignForm onValidate={handleValidate} onComplete={hanmdleComplete}>
-          <Button type='submit' data-testid='signin-button' disabled={true}>
+          <Button type='submit' data-testid='signin-button' disabled={disabled}>
             완료
           </Button>
         </SignForm>
