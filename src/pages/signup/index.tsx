@@ -32,11 +32,13 @@ const SignupPage = () => {
   return (
     <s.Wrapper>
       <s.Title>회원가입</s.Title>
-      <SignForm onValidate={handleValidate} onComplete={handleComplete}>
-        <Button type='submit' data-testid='signup-button' disabled={disabled}>
-          완료
-        </Button>
-      </SignForm>
+      <s.FormBox>
+        <SignForm onValidate={handleValidate} onComplete={handleComplete}>
+          <Button type='submit' data-testid='signup-button' disabled={disabled}>
+            완료
+          </Button>
+        </SignForm>
+      </s.FormBox>
     </s.Wrapper>
   );
 };
