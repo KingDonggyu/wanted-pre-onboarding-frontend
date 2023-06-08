@@ -8,7 +8,7 @@ interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 const TextField = ({ label, ...inputAttrs }: TextFieldProps) => {
   const textField = (
     <s.TextFieldBorder>
-      <s.TextField {...inputAttrs} />
+      <s.TextField type='text' {...inputAttrs} />
     </s.TextFieldBorder>
   );
 

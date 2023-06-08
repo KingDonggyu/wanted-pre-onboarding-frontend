@@ -8,17 +8,15 @@ import theme from './styles/theme';
 
 const SignupPage = lazy(() => import('./pages/signup'));
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Global styles={globalStyle} />
-      <ThemeProvider theme={theme}>
-        <Routes>
-          <Route path={Path.SIGNUP} element={<SignupPage />} />
-        </Routes>
-      </ThemeProvider>
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Global styles={globalStyle} />
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path={Path.SIGNUP} element={<SignupPage />} />
+      </Routes>
+    </ThemeProvider>
+  </BrowserRouter>
+);
 
 export default App;

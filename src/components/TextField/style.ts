@@ -3,14 +3,14 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div``;
 
 export const Label = styled.p`
-  margin-bottom: 7px;
+  margin-bottom: 0.5em;
   font-size: ${({ theme }) => theme.fontSize.medium};
 `;
 
 export const TextFieldBorder = styled.div`
-  padding: 7px;
-  width: fit-content;
-  border-radius: 5px;
+  padding: 1em;
+  width: 100%;
+  border-radius: 0.5em;
   border: 1px solid ${({ theme }) => theme.color.gray};
 
   :focus-within {
@@ -21,5 +21,6 @@ export const TextFieldBorder = styled.div`
 export const TextField = styled.input`
   outline: none;
   border: none;
+  width: 100%;
   font-size: ${({ theme }) => theme.fontSize.medium};
 `;

@@ -1,8 +1,8 @@
 const fontSize = {
-  display: '2.5rem',
-  large: '1.5rem',
-  medium: '1.2rem',
-  small: '0.9rem',
+  display: '4rem',
+  large: '3rem',
+  medium: '2rem',
+  small: '1.5rem',
 };
 
 const color = {
@@ -11,6 +11,8 @@ const color = {
   mint: '#21dfa6',
   gray: '#9a9ea3',
   gray2: '#e4e8eB',
+  white: '#ffffff',
+  black: '#1e1f21',
 };
 
 const theme = {

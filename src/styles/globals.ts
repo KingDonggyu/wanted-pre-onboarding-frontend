@@ -10,12 +10,22 @@ const globalStyle = () => css`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
+  @media screen and (max-width: 480px) {
+    html {
+      font-size: 50%;
+    }
+  }
+
   #root {
     width: 100%;
+    height: 100vh;
     margin: auto;
     max-width: 70rem;
-    padding-top: 5rem;
-    font-size: 62.5%;
+    overflow-y: auto;
   }
 `;
 
