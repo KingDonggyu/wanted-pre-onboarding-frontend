@@ -6,17 +6,14 @@ export const Wrapper = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5em;
+  gap: 6em;
+
+  button {
+    margin-top: 1em;
+  }
 `;
 
 export const Title = styled.h1(({ theme }) => ({
   fontSize: theme.fontSize.display,
   fontWeight: 'bold',
 }));
-
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 3.5em;
-  width: 35em;
-`;

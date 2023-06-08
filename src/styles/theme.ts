@@ -1,7 +1,7 @@
 const fontSize = {
   display: '4rem',
   large: '3rem',
-  medium: '2rem',
+  medium: '1.8rem',
   small: '1.5rem',
 };
 
