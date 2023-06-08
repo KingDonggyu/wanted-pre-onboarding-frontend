@@ -7,19 +7,28 @@ import {
   useEffect,
   useCallback,
 } from 'react';
-import TextField from '../../components/TextField';
 import * as s from './style';
+import User from '../../types/user';
+import TextField from '../../components/TextField';
 
 interface SignFormProps extends FormHTMLAttributes<HTMLFormElement> {
   onValidate: (isValid: boolean) => void;
+  onComplete: ({ email, password }: User) => void;
   children: ReactNode;
 }
 
-const SignForm = ({ onValidate, children, ...formAttrs }: SignFormProps) => {
-  const [values, setValues] = useState({ email: '', password: '' });
+const SignForm = ({
+  onValidate,
+  onComplete,
+  children,
+  ...formAttrs
+}: SignFormProps) => {
+  const [values, setValues] = useState<User>({ email: '', password: '' });
 
   const validate = useCallback(() => {
-    onValidate(values.email.includes('@') && values.password.length >= 8);
+    const isValid = values.email.includes('@') && values.password.length >= 8;
+    onValidate(isValid);
+    return isValid;
   }, [onValidate, values.email, values.password.length]);
 
   const handleChage = (e: ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +37,9 @@ const SignForm = ({ onValidate, children, ...formAttrs }: SignFormProps) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (validate()) {
+      onComplete({ ...values });
+    }
   };
 
   useEffect(() => {
@@ -35,7 +47,7 @@ const SignForm = ({ onValidate, children, ...formAttrs }: SignFormProps) => {
   }, [validate]);
 
   return (
-    <s.Form onSubmit={handleSubmit} {...formAttrs}>
+    <s.Form method='post' onSubmit={handleSubmit} {...formAttrs}>
       <TextField
         data-testid='email-input'
         name='email'
