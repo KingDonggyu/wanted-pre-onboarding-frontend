@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({
-  baseURL: 'https://www.pre-onboarding-selection-task.shop/',
-});
+class HttpClient {
+  protected axiosInstance = axios.create({
+    baseURL: 'https://www.pre-onboarding-selection-task.shop/',
+  });
+}
 
-export default axiosInstance;
+export default HttpClient;
