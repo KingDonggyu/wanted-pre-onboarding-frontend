@@ -26,7 +26,9 @@ const useAuthRedirection = ({
     }
 
     setIsAuth(false);
-    navigate(to, { replace: true });
+    if (!isRedirectIfAuth) {
+      navigate(to, { replace: true });
+    }
   }, [authRepository, isRedirectIfAuth, navigate, to]);
 
   return isAuth;
