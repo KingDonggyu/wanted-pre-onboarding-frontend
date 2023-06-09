@@ -7,6 +7,7 @@ import globalStyle from './styles/globals';
 import theme from './styles/theme';
 
 const SignupPage = lazy(() => import('./pages/signup'));
+const SigninPage = lazy(() => import('./pages/signin'));
 
 const App = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path={Path.SIGNUP} element={<SignupPage />} />
+        <Route path={Path.SIGNIN} element={<SigninPage />} />
       </Routes>
     </ThemeProvider>
   </BrowserRouter>

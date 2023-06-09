@@ -11,6 +11,14 @@ export const Wrapper = styled.main`
   button {
     margin-top: 1em;
   }
+
+  a {
+    margin-top: 1.5em;
+    width: fit-content;
+    text-decoration: none;
+    color: ${({ theme }) => theme.color.black};
+    font-size: ${({ theme }) => theme.fontSize.small};
+  }
 `;
 
 export const Title = styled.h1`
