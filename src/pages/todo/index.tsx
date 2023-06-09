@@ -2,7 +2,7 @@ import * as s from './style';
 import Route from '../../constants/routes';
 import useAuthRedirection from '../../hooks/useAuthRedirection';
 import TodoAdder from '../../components/TodoAdder';
-import TodoItem from '../../components/TodoItem';
+import TodoList from '../../components/TodoList';
 
 const TodoPage = () => {
   const isAuth = useAuthRedirection({
@@ -18,7 +18,7 @@ const TodoPage = () => {
     <s.Wrapper>
       <s.Title>TODO List</s.Title>
       <TodoAdder />
-      <TodoItem />
+      <TodoList />
     </s.Wrapper>
   );
 };

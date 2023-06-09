@@ -3,11 +3,12 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 import * as s from './style';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
+import Todo from '../../types/todo';
 
-const TodoItem = () => (
+const TodoItem = ({ todo, isCompleted }: Todo) => (
   <s.Item>
-    <CheckBox checked />
-    <s.Todo>축구</s.Todo>
+    <CheckBox checked={isCompleted} />
+    <s.Todo>{todo}</s.Todo>
     <s.ButtonSet>
       <Button aria-label='수정'>
         <BiPencil size={25} />
