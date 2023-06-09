@@ -24,7 +24,7 @@ const SignupPage = () => {
     signUp({ email, password });
   };
 
-  if (!isAuth) {
+  if (isAuth) {
     return null;
   }
 
