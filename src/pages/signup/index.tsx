@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import * as s from './style';
 import Button from '../../components/Button';
 import SignForm from '../../components/SignForm';
-
 import User from '../../types/user';
-import UserRepository from '../../repository/api/UserRepository';
-import handleHttpError from '../../utils/handleHttpError';
-import Route from '../../constants/routes';
+import useSignUp from '../../hooks/services/useSignUp';
 
 const SignupPage = () => {
-  const navigate = useNavigate();
+  const signUp = useSignUp();
   const [disabled, setDisabled] = useState(true);
 
   const handleValidate = (isValid: boolean) => {
@@ -18,15 +14,7 @@ const SignupPage = () => {
   };
 
   const handleComplete = async ({ email, password }: User) => {
-    try {
-      await new UserRepository().signup({ email, password });
-      navigate(Route.SIGNIN);
-    } catch (error) {
-      const response = handleHttpError(error);
-      if (response) {
-        alert(response.message);
-      }
-    }
+    signUp({ email, password });
   };
 
   return (
