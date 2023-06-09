@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
-  width: 40em;
+export const Form = styled.form`
   display: flex;
+  width: 100%;
   gap: 2em;
 
   input {
@@ -10,6 +10,6 @@ export const Wrapper = styled.div`
   }
 
   button {
-    width: 5em;
+    width: 3em;
   }
 `;

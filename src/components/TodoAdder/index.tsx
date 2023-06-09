@@ -1,13 +1,16 @@
+import { IoMdAdd } from 'react-icons/io';
 import Button from '../Button';
 import TextField from '../TextField';
 import * as s from './style';
 
 const TodoAdder = () => {
   return (
-    <s.Wrapper>
+    <s.Form method='post'>
       <TextField />
-      <Button>추가</Button>
-    </s.Wrapper>
+      <Button type='submit' aria-label='추가'>
+        <IoMdAdd size={30} />
+      </Button>
+    </s.Form>
   );
 };
 

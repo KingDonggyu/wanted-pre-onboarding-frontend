@@ -1,5 +1,8 @@
+import * as s from './style';
 import Route from '../../constants/routes';
 import useAuthRedirection from '../../hooks/useAuthRedirection';
+import TodoAdder from '../../components/TodoAdder';
+import TodoItem from '../../components/TodoItem';
 
 const TodoPage = () => {
   const isAuth = useAuthRedirection({
@@ -11,7 +14,13 @@ const TodoPage = () => {
     return null;
   }
 
-  return <main>Todo</main>;
+  return (
+    <s.Wrapper>
+      <s.Title>TODO List</s.Title>
+      <TodoAdder />
+      <TodoItem />
+    </s.Wrapper>
+  );
 };
 
 export default TodoPage;
