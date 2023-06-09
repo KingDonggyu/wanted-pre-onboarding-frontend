@@ -4,10 +4,17 @@ import Button from '../../components/Button';
 import SignForm from '../../components/SignForm';
 import User from '../../types/user';
 import useSignUp from '../../hooks/services/useSignUp';
+import useAuthRedirection from '../../hooks/useAuthRedirection';
+import Route from '../../constants/routes';
 
 const SignupPage = () => {
   const signUp = useSignUp();
   const [disabled, setDisabled] = useState(true);
+
+  const isAuth = useAuthRedirection({
+    to: Route.TODO,
+    isRedirectIfAuth: true,
+  });
 
   const handleValidate = (isValid: boolean) => {
     setDisabled(!isValid);
@@ -16,6 +23,10 @@ const SignupPage = () => {
   const handleComplete = async ({ email, password }: User) => {
     signUp({ email, password });
   };
+
+  if (!isAuth) {
+    return null;
+  }
 
   return (
     <s.Wrapper>

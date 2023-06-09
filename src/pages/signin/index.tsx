@@ -6,10 +6,16 @@ import SignForm from '../../components/SignForm';
 import Route from '../../constants/routes';
 import User from '../../types/user';
 import useSignIn from '../../hooks/services/useSignIn';
+import useAuthRedirection from '../../hooks/useAuthRedirection';
 
 const SigninPage = () => {
   const signIn = useSignIn();
   const [disabled, setDisabled] = useState(true);
+
+  const isAuth = useAuthRedirection({
+    to: Route.TODO,
+    isRedirectIfAuth: true,
+  });
 
   const handleValidate = (isValid: boolean) => {
     setDisabled(!isValid);
@@ -18,6 +24,10 @@ const SigninPage = () => {
   const handleComplete = async ({ email, password }: User) => {
     signIn({ email, password });
   };
+
+  if (isAuth) {
+    return null;
+  }
 
   return (
     <s.Wrapper>

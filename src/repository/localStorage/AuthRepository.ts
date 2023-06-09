@@ -1,6 +1,6 @@
 import LocalStorageBase from './LocalStorageBase';
 
-class AuthRepository<T> extends LocalStorageBase<T> {
+class AuthRepository extends LocalStorageBase<string> {
   constructor() {
     super('AUTH');
   }
