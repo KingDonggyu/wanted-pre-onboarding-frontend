@@ -8,9 +8,9 @@ const useTodos = () => {
     return new TodoListRepository().get();
   }, []);
 
-  const { data } = useQuery<Todo[]>({ queryFunc });
+  const { data, refetch } = useQuery<Todo[]>({ queryFunc });
 
-  return data;
+  return { todoList: data, refetch };
 };
 
 export default useTodos;

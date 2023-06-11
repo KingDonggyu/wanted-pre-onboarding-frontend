@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface QueryParams<T> {
   queryFunc: () => Promise<T>;
@@ -10,16 +10,14 @@ const useQuery = <T>({ queryFunc, onSuccess, onError }: QueryParams<T>) => {
   const [data, setData] = useState<T | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  const fetch = useCallback(async () => {
     try {
       setIsLoading(true);
-      (async () => {
-        const newData = await queryFunc();
-        setData(newData);
-        if (onSuccess) {
-          onSuccess(newData);
-        }
-      })();
+      const newData = await queryFunc();
+      setData(newData);
+      if (onSuccess) {
+        onSuccess(newData);
+      }
     } catch (error) {
       if (onError) {
         onError(error);
@@ -29,7 +27,11 @@ const useQuery = <T>({ queryFunc, onSuccess, onError }: QueryParams<T>) => {
     }
   }, [onError, onSuccess, queryFunc]);
 
-  return { data, isLoading };
+  useEffect(() => {
+    fetch();
+  }, [fetch]);
+
+  return { data, isLoading, refetch: fetch };
 };
 
 export default useQuery;
