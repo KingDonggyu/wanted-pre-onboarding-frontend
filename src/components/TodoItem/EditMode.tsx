@@ -3,9 +3,10 @@ import * as s from './style';
 import Button from '../Button';
 import TextField from '../TextField';
 import Todo from '../../types/todo';
+import useTodoUpdater from '../../hooks/services/useTodoUpdater';
 
 interface EditModeTodoItemProps {
-  todoInfo: Pick<Todo, 'id' | 'todo'>;
+  todoInfo: Omit<Todo, 'userId'>;
   onSubmit: () => void;
   onCancel: () => void;
 }
@@ -15,10 +16,20 @@ const EditModeTodoItem = ({
   onSubmit,
   onCancel,
 }: EditModeTodoItemProps) => {
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const updateTodo = useTodoUpdater();
 
-  const handleSubmit = () => {
-    onSubmit();
+  const handleSubmit = async () => {
+    if (!inputRef.current) {
+      return;
+    }
+
+    const editedTodo = inputRef.current.value;
+    const result = await updateTodo({ ...todoInfo, todo: editedTodo });
+
+    if (result) {
+      onSubmit();
+    }
   };
 
   const handleCancel = () => {
@@ -30,7 +41,7 @@ const EditModeTodoItem = ({
       <TextField
         data-testid='modify-input'
         ref={inputRef}
-        value={todoInfo.todo}
+        defaultValue={todoInfo.todo}
       />
       <s.ButtonSet>
         <Button data-testid='submit-button' onClick={handleSubmit}>

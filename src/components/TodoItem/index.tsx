@@ -37,7 +37,7 @@ const TodoItem = ({ id, todo, isCompleted }: Todo) => {
       />
       {isEditMode ? (
         <EditModeTodoItem
-          todoInfo={{ id, todo }}
+          todoInfo={{ id, todo, isCompleted }}
           onSubmit={() => setIsEditMode(false)}
           onCancel={() => setIsEditMode(false)}
         />

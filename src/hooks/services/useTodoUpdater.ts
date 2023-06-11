@@ -5,14 +5,17 @@ import useMutation from '../useMutation';
 
 const useTodoUpdater = () => {
   const { refetch } = useTodoListContext();
-  const { mutate } = useMutation<Todo, Omit<Todo, 'userId'>>({
+  const { mutate } = useMutation<Todo | null, Omit<Todo, 'userId'>>({
     mutationFunc: async ({ id, todo, isCompleted }) => {
+      if (todo === '') {
+        alert('할 일을 입력해주세요.');
+        return null;
+      }
+
       return new TodoRepository().update({ id, todo, isCompleted });
     },
 
-    onSuccess: () => {
-      refetch();
-    },
+    onSuccess: () => refetch(),
   });
 
   return mutate;
