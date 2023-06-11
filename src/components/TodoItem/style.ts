@@ -21,7 +21,7 @@ export const ButtonSet = styled.div`
   flex-grow: 1;
 
   button {
-    width: fit-content;
+    width: max-content;
     background: none;
     color: ${({ theme }) => theme.color.black};
     :hover {

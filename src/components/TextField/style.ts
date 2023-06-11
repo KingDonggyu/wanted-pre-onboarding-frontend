@@ -8,8 +8,10 @@ export const Label = styled.p`
 `;
 
 export const TextFieldBorder = styled.div`
-  padding: 1em;
+  padding: 1rem;
   width: 100%;
+  display: flex;
+  align-items: center;
   border-radius: 0.5em;
   border: 1px solid ${({ theme }) => theme.color.gray};
 

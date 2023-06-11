@@ -12,6 +12,7 @@ const TodoAdder = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await addTodo({ todo });
+    setTodo('');
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

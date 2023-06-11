@@ -1,11 +1,11 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, forwardRef } from 'react';
 import * as s from './style';
 
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-const TextField = ({ label, ...inputAttrs }: TextFieldProps) => {
+const TextField = forwardRef(({ label, ...inputAttrs }: TextFieldProps) => {
   const textField = (
     <s.TextFieldBorder>
       <s.TextField type='text' {...inputAttrs} />
@@ -22,6 +22,6 @@ const TextField = ({ label, ...inputAttrs }: TextFieldProps) => {
       {textField}
     </s.Wrapper>
   );
-};
+});
 
 export default TextField;
