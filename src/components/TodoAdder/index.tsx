@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { FormEvent, useRef } from 'react';
 import { IoMdAdd } from 'react-icons/io';
 import * as s from './style';
 import Button from '../Button';
@@ -6,26 +6,21 @@ import TextField from '../TextField';
 import useTodoAdder from '../../hooks/services/useTodoAdder';
 
 const TodoAdder = () => {
-  const [todo, setTodo] = useState('');
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const addTodo = useTodoAdder();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    await addTodo({ todo });
-    setTodo('');
-  };
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTodo(e.target.value);
+    if (!inputRef.current) {
+      return;
+    }
+    await addTodo({ todo: inputRef.current.value });
+    inputRef.current.value = '';
   };
 
   return (
     <s.Form method='post' onSubmit={handleSubmit}>
-      <TextField
-        data-testid='new-todo-input'
-        value={todo}
-        onChange={handleChange}
-      />
+      <TextField data-testid='new-todo-input' ref={inputRef} />
       <Button data-testid='new-todo-add-button' type='submit' aria-label='추가'>
         <IoMdAdd size={30} />
       </Button>
