@@ -11,7 +11,7 @@ const useMutation = <TData, TVariables>({
   onSuccess,
   onError,
 }: MutationParams<TData, TVariables>) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const mutate = async (variables: TVariables) => {
     setIsLoading(true);

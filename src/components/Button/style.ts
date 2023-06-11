@@ -2,6 +2,9 @@ import styled from '@emotion/styled';
 
 export const Button = styled.button<{ disabled: boolean }>(
   ({ theme, disabled }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     cursor: disabled ? 'default' : 'pointer',
     border: 'none',
     width: '100%',

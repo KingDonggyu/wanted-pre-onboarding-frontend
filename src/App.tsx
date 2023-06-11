@@ -8,6 +8,7 @@ import theme from './styles/theme';
 
 const SignupPage = lazy(() => import('./pages/signup'));
 const SigninPage = lazy(() => import('./pages/signin'));
+const TodoPage = lazy(() => import('./pages/todo'));
 
 const App = () => (
   <BrowserRouter>
@@ -16,6 +17,7 @@ const App = () => (
       <Routes>
         <Route path={Path.SIGNUP} element={<SignupPage />} />
         <Route path={Path.SIGNIN} element={<SigninPage />} />
+        <Route path={Path.TODO} element={<TodoPage />} />
       </Routes>
     </ThemeProvider>
   </BrowserRouter>

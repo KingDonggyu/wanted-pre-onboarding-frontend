@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { boxStyle } from '../../styles/css';
+import { boxStyle, titleStyle } from '../../styles/css';
 
 export const Wrapper = styled.main`
   height: 100%;
@@ -14,9 +14,8 @@ export const Wrapper = styled.main`
 `;
 
 export const Title = styled.h1`
+  ${({ theme }) => titleStyle(theme)}
   margin-bottom: 1em;
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.fontSize.display};
 `;
 
 export const FormBox = styled.div`
