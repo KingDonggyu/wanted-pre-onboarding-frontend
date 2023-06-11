@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { titleStyle } from '../../styles/css';
 
 export const Wrapper = styled.main`
-  padding-top: 10em;
+  padding-top: 5em;
   margin: auto;
   width: 80%;
   height: 100%;
@@ -10,6 +10,10 @@ export const Wrapper = styled.main`
   flex-direction: column;
   align-items: center;
   gap: 4em;
+
+  & > button:first-of-type {
+    margin-left: auto;
+  }
 `;
 
 export const Title = styled.h1`
