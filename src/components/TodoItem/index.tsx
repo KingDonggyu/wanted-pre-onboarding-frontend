@@ -45,10 +45,18 @@ const TodoItem = ({ id, todo, isCompleted }: Todo) => {
         <>
           <s.Todo>{todo}</s.Todo>
           <s.ButtonSet>
-            <Button aria-label='수정' onClick={handleClickEditButton}>
+            <Button
+              data-testid='modify-button'
+              aria-label='수정'
+              onClick={handleClickEditButton}
+            >
               <BiPencil size={25} />
             </Button>
-            <Button aria-label='삭제' onClick={handleClickDeleteButton}>
+            <Button
+              data-testid='delete-button'
+              aria-label='삭제'
+              onClick={handleClickDeleteButton}
+            >
               <RiDeleteBin5Line size={25} />
             </Button>
           </s.ButtonSet>

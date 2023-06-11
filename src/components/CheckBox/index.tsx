@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as s from './style';
 
 interface CheckBoxProps {
@@ -28,9 +28,7 @@ const CheckBox = ({ checked, onChecked, onUnchecked }: CheckBoxProps) => {
   };
 
   return (
-    <s.CheckBox type='button' onClick={handleClick}>
-      {!!isChecked && '✔️'}
-    </s.CheckBox>
+    <s.CheckBox type='checkbox' checked={isChecked} onChange={handleClick} />
   );
 };
 

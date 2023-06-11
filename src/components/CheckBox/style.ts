@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const CheckBox = styled.button`
+export const CheckBox = styled.input`
   cursor: pointer;
   background: none;
   display: flex;
