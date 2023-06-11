@@ -7,7 +7,7 @@ class TodoRepository extends HttpClient {
     return data;
   }
 
-  async complete({ id, todo, isCompleted }: Omit<Todo, 'userId'>) {
+  async update({ id, todo, isCompleted }: Omit<Todo, 'userId'>) {
     const { data } = await this.axiosInstance.put<Todo>(`/todos/${id}`, {
       todo,
       isCompleted,

@@ -3,11 +3,11 @@ import TodoRepository from '../../repository/api/TodoRepository';
 import Todo from '../../types/todo';
 import useMutation from '../useMutation';
 
-const useTodoCompletion = () => {
+const useTodoUpdater = () => {
   const { refetch } = useTodoListContext();
   const { mutate } = useMutation<Todo, Omit<Todo, 'userId'>>({
     mutationFunc: async ({ id, todo, isCompleted }) => {
-      return new TodoRepository().complete({ id, todo, isCompleted });
+      return new TodoRepository().update({ id, todo, isCompleted });
     },
 
     onSuccess: () => {
@@ -18,4 +18,4 @@ const useTodoCompletion = () => {
   return mutate;
 };
 
-export default useTodoCompletion;
+export default useTodoUpdater;

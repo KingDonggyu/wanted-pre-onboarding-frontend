@@ -5,12 +5,12 @@ import * as s from './style';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
 import Todo from '../../types/todo';
-import useTodoCompletion from '../../hooks/services/useTodoCompletion';
+import useTodoUpdater from '../../hooks/services/useTodoUpdater';
 import useTodoDeletion from '../../hooks/services/useTodoDeletion';
 import EditModeTodoItem from './EditMode';
 
 const TodoItem = ({ id, todo, isCompleted }: Todo) => {
-  const complete = useTodoCompletion();
+  const complete = useTodoUpdater();
   const deleteTodo = useTodoDeletion();
   const [isEditMode, setIsEditMode] = useState(false);
 
