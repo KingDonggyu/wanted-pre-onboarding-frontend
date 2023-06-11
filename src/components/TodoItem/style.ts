@@ -10,6 +10,7 @@ export const Item = styled.li`
 
 export const Todo = styled.span`
   overflow-x: hidden;
+  overflow-y: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;

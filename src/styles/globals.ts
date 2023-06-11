@@ -24,7 +24,7 @@ const globalStyle = () => css`
     width: 100%;
     height: 100vh;
     margin: auto;
-    max-width: 70rem;
+    max-width: 80rem;
     overflow-y: auto;
   }
 `;
