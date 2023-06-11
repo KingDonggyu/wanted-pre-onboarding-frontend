@@ -6,6 +6,15 @@ class TodoRepository extends HttpClient {
     const { data } = await this.axiosInstance.post<Todo>('/todos', { todo });
     return data;
   }
+
+  async complete({ id, todo, isCompleted }: Omit<Todo, 'userId'>) {
+    const { data } = await this.axiosInstance.put<Todo>(`/todos/${id}`, {
+      todo,
+      isCompleted,
+    });
+
+    return data;
+  }
 }
 
 export default TodoRepository;

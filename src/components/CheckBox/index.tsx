@@ -1,30 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as s from './style';
 
 interface CheckBoxProps {
   checked: boolean;
-  onChecked?: () => void;
-  onUnchecked?: () => void;
+  onChecked?: (isChecked: boolean) => void;
+  onUnchecked?: (isChecked: boolean) => void;
 }
 
 const CheckBox = ({ checked, onChecked, onUnchecked }: CheckBoxProps) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleClick = () => {
-    setIsChecked(!isChecked);
-  };
+    const newIsChecked = !isChecked;
 
-  useEffect(() => {
-    if (checked) {
+    setIsChecked(newIsChecked);
+
+    if (newIsChecked) {
       if (onChecked) {
-        onChecked();
+        onChecked(newIsChecked);
       }
       return;
     }
+
     if (onUnchecked) {
-      onUnchecked();
+      onUnchecked(newIsChecked);
     }
-  }, [checked, onChecked, onUnchecked]);
+  };
 
   return (
     <s.CheckBox type='button' onClick={handleClick}>

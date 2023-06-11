@@ -3,6 +3,7 @@ import Route from '../../constants/routes';
 import useAuthRedirection from '../../hooks/useAuthRedirection';
 import TodoAdder from '../../components/TodoAdder';
 import TodoList from '../../components/TodoList';
+import { TodoListProvider } from '../../contexts/todoListContext';
 
 const TodoPage = () => {
   const isAuth = useAuthRedirection({
@@ -15,11 +16,13 @@ const TodoPage = () => {
   }
 
   return (
-    <s.Wrapper>
-      <s.Title>TODO List</s.Title>
-      <TodoAdder />
-      <TodoList />
-    </s.Wrapper>
+    <TodoListProvider>
+      <s.Wrapper>
+        <s.Title>TODO List</s.Title>
+        <TodoAdder />
+        <TodoList />
+      </s.Wrapper>
+    </TodoListProvider>
   );
 };
 

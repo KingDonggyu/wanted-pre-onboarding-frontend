@@ -1,9 +1,9 @@
 import * as s from './style';
 import TodoItem from '../TodoItem';
-import useTodos from '../../hooks/services/useTodos';
+import { useTodoListContext } from '../../contexts/todoListContext';
 
 const TodoList = () => {
-  const todoList = useTodos();
+  const { todoList } = useTodoListContext();
 
   if (!todoList) {
     return null;
