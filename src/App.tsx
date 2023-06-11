@@ -10,6 +10,7 @@ const HomePage = lazy(() => import('./pages/home'));
 const SignupPage = lazy(() => import('./pages/signup'));
 const SigninPage = lazy(() => import('./pages/signin'));
 const TodoPage = lazy(() => import('./pages/todo'));
+const NotFoundPage = lazy(() => import('./pages/404'));
 
 const App = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
         <Route path={Path.SIGNUP} element={<SignupPage />} />
         <Route path={Path.SIGNIN} element={<SigninPage />} />
         <Route path={Path.TODO} element={<TodoPage />} />
+        <Route path='/*' element={<NotFoundPage />} />
       </Routes>
     </ThemeProvider>
   </BrowserRouter>
