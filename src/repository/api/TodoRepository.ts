@@ -15,6 +15,10 @@ class TodoRepository extends HttpClient {
 
     return data;
   }
+
+  async delete({ id }: Pick<Todo, 'id'>) {
+    await this.axiosInstance.delete(`/todos/${id}`);
+  }
 }
 
 export default TodoRepository;
