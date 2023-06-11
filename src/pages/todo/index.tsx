@@ -4,6 +4,7 @@ import useAuthRedirection from '../../hooks/useAuthRedirection';
 import TodoAdder from '../../components/TodoAdder';
 import TodoList from '../../components/TodoList';
 import { TodoListProvider } from '../../contexts/todoListContext';
+import SignOutButton from '../../components/SignOutButton';
 
 const TodoPage = () => {
   const isAuth = useAuthRedirection({
@@ -18,6 +19,7 @@ const TodoPage = () => {
   return (
     <TodoListProvider>
       <s.Wrapper>
+        <SignOutButton />
         <s.Title>TODO List</s.Title>
         <TodoAdder />
         <TodoList />
